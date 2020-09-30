@@ -1,11 +1,15 @@
 <?php
+    $tabMenu=[
+        "home" => "pages/home.php",
+        "presentation" => "pages/presentation.php",
+        "contact" => "pages/contact.php"
+    ];
     if(isset($_GET['page'])){
-        $tabMenu=[
-            "home" => "pages/home.php",
-            "presentation" => "pages/presentation.php",
-            "contact" => "pages/contact.php"
-        ];
-        $menu=$tabMenu[$_GET['page']];
+        if(array_key_exists($_GET['page'],$tabMenu)){
+            $menu=$tabMenu[$_GET['page']];
+        }else{
+            $menu="pages/notFound.php";
+        }
     }else{
         $menu="pages/home.php";
     }
